@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<canvas id = "myCanvas" height = "500" width = "500" >
+</canvas>
+	
+<script type="text/javascript">
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.strokeStyle = "#57FEFF";
+ctx.lineCap = "round";
+ctx.lineWidth = 12;
+ctx.shadowBlur = 15;
+ctx.shadowColor = "#57FEFF";
+
+
+	function degreeToRadian (degree) {
+	var factor = Math.PI/180;
+ 	return degree*factor;
+
+}
+
+function getTime(){
+
+	var now = new Date();
+	var today = now.toDateString();
+	var time = now.toLocaleTimeString();
+	var hours = now.getHours();
+	var minutes = now.getMinutes();
+	var seconds = now.getSeconds();
+	var milliseconds = now.getMilliseconds();
+	var newSeconds = seconds + (milliseconds/1000);
+
+	//Background
+	gradient = ctx.createRadialGradient(250, 250, 5, 250, 250, 300);
+	gradient.addColorStop(0, "#151B54")
+	gradient.addColorStop(1, "black")
+	ctx.fillStyle = "black";
+	ctx.fillStyle = gradient;
+	ctx.fillRect(0 , 0, 500 , 500);
+
+
+	//Hours
+	ctx.beginPath();
+	ctx.arc(250,250,200,degreeToRadian(270),
+	degreeToRadian((hours*15)-90));
+	ctx.stroke();
+	//Minutes
+	ctx.beginPath();
+	ctx.arc(250,250,170,degreeToRadian(270),
+	degreeToRadian((minutes*6)-90));
+	ctx.stroke();
+
+	//Seconds
+	ctx.beginPath();
+	ctx.arc(250,250,140,degreeToRadian(270),
+	degreeToRadian((newSeconds*6)-90));
+	ctx.stroke();
+	
+	//Date
+	ctx.font = "28px Arial";
+	ctx.fillStyle = "#57FEFF";
+	ctx.fillText(today, 175, 250)   
+
+	//Time
+	ctx.font = "15px Arial";
+	ctx.fillStyle = "#57FEFF";
+	ctx.fillText(time, 175, 290)
+
+
+}
+setInterval("getTime()", 30);
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

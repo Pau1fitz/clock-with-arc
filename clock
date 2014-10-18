@@ -48,7 +48,7 @@ function getTime(){
 	//Hours
 	ctx.beginPath();
 	ctx.arc(250,250,200,degreeToRadian(270),
-	degreeToRadian((hours*15)-90));
+	degreeToRadian((hours*30)-90));
 	ctx.stroke();
 	//Minutes
 	ctx.beginPath();
@@ -65,12 +65,13 @@ function getTime(){
 	//Date
 	ctx.font = "28px Rockwell";
 	ctx.fillStyle = "#57FEFF";
-	ctx.fillText(today, 175, 250)   
+	ctx.fillText(time, 175, 250)
 
 	//Time
 	ctx.font = "15px Rockwell";
 	ctx.fillStyle = "#57FEFF";
-	ctx.fillText(time, 175, 290)
+	ctx.fillText(today, 175, 290)   
+	
 
 
 }

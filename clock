@@ -78,9 +78,6 @@ function getTime(){
 setInterval("getTime()", 30);
 
 
-
-
-
 </script>
 
 </body>
